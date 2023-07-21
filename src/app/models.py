@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Chicharrones_LaJulia(models.Model):
-    # aumentarle mas códigos para enlazar con otras tablas
+
     cod_ruc = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     direccion = models.CharField(max_length=300)
     telefono =  models.IntegerField()
@@ -17,32 +17,58 @@ class Chicharrones_LaJulia(models.Model):
     cod_almacen = models.ForeignKey(Almacen, on_delete=models.CASCADE)
         
 
-class cliente:
-    pass
+class Cliente:
+    nombre = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
 
-class proovedor:
-    pass
+    def __str__(self):
+        return self.nombre
 
-class empleado: 
-    pass
 
-class cargo:
-    pass
+class Proveedor:
+    nombre = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
 
-class platos:
-    pass
+    def __str__(self):
+        return self.nombre
 
-class plato_detalles:
-    pass
 
-class cliente:
-    pass
+class Empleado: 
+    nombre = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nombre
+
+
+class Cargo:
+    nombre_cargo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre_cargo
+
+class Plato:
+    nombre = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=8, decimal_places=2)
+
+    def __str__(self):
+        return self.nombre
+
+class Plato_detalles:
+    plato = models.ForeignKey(Plato, on_delete=models.CASCADE)
+    descripcion = models.TextField()
+
+    def __str__(self):
+        return f"Detalles de {self.plato.nombre}"
 
 
 
 # para almacen, adicionalmente se podría implementar
-class almacen:
+class Almacen:
     pass
 
-#class otras_tablas:
+#class Otras_tablas:
 #    pass
