@@ -26,7 +26,7 @@ class Cliente:
         return self.nombre
 
 
-class Proovedor:
+class Proveedor:
     nombre = models.CharField(max_length=100)
     direccion = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
@@ -36,10 +36,19 @@ class Proovedor:
 
 
 class Empleado: 
-    pass
+    nombre = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nombre
+
 
 class Cargo:
-    pass
+    nombre_cargo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre_cargo
 
 class Plato:
     pass
