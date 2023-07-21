@@ -51,13 +51,18 @@ class Cargo:
         return self.nombre_cargo
 
 class Plato:
-    pass
+    nombre = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=8, decimal_places=2)
+
+    def __str__(self):
+        return self.nombre
 
 class Plato_detalles:
-    pass
+    plato = models.ForeignKey(Plato, on_delete=models.CASCADE)
+    descripcion = models.TextField()
 
-class Cliente:
-    pass
+    def __str__(self):
+        return f"Detalles de {self.plato.nombre}"
 
 
 
