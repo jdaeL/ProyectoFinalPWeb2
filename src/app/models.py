@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Chicharrones_LaJulia(models.Model):
-    # aumentarle mas códigos para enlazar con otras tablas
+
     cod_ruc = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     direccion = models.CharField(max_length=300)
     telefono =  models.IntegerField()
@@ -17,32 +17,32 @@ class Chicharrones_LaJulia(models.Model):
     cod_almacen = models.ForeignKey(Almacen, on_delete=models.CASCADE)
         
 
-class cliente:
+class Cliente:
     pass
 
-class proovedor:
+class Proovedor:
     pass
 
-class empleado: 
+class Empleado: 
     pass
 
-class cargo:
+class Cargo:
     pass
 
-class platos:
+class Plato:
     pass
 
-class plato_detalles:
+class Plato_detalles:
     pass
 
-class cliente:
+class Cliente:
     pass
 
 
 
 # para almacen, adicionalmente se podría implementar
-class almacen:
+class Almacen:
     pass
 
-#class otras_tablas:
+#class Otras_tablas:
 #    pass
